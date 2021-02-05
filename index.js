@@ -25,6 +25,7 @@ getPackageQueue.drain(function () {
 function getPackageJson(params) {
   let { packageName } = params;
   let url = registryUrl.replace(/\/$/, '') + '/' + packageName;
+  console.log('url', url)
   return axios.get(url);
 }
 

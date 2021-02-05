@@ -17,7 +17,7 @@ let getPackageQueue = async.queue(function (task, callback) {
 getPackageQueue.drain(function () {
   let data = formatPackageData(packageList, packageList);
   let output = { [name]: data[name] };
-  let treeString = "|" + treeify.asTree(output, true).replace(/├/g, '|-').replace(/└/g, '|-').replace(/─ /g, '-').replace(/\n/g, '\n|');
+  let treeString = treeify.asTree(output, true)
   console.log(`${name}的依赖包如下`);
   console.log(treeString);
 });
